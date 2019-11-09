@@ -128,9 +128,9 @@ ul.ActivesideNav{
     transition: 0.5s left ease-in;
 }
 
-i:hover{
-    opacity: 0.6;
-    transition: 0.2s opacity ease-in-out;
+ul.ActivesideNav a i:hover{
+    color: #f0134d;
+    transition: 0.2s color ease-in-out;
 }
 
 

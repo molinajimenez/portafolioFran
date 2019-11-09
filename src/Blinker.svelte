@@ -1,0 +1,29 @@
+<script>
+
+</script>
+
+<style>
+    div.blinker{
+        animation: .8s blink infinite;
+        background: black;
+        display: inline-block;
+        height: calc(12px + 0.25vw);
+        margin-bottom: -1px;
+        margin-left: 5px;
+        width: 8px;
+    }
+    @keyframes blink {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+
+</style>
+
+<div class="blinker" />
+
