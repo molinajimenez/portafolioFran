@@ -1,6 +1,7 @@
 <script>
-    import Blinker from 'Blinker.svelte';
-    export let text, active;
+    import Blinker from './Blinker.svelte';
+    export let text;
+    export let active = false;
 </script>
 
 <style>

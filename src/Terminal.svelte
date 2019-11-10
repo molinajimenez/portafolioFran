@@ -5,33 +5,30 @@
     import Board from './Board.svelte';
     import HiddenForm from './HiddenForm.svelte';
 
-    export let onClick;
-    let commands = [];
+    
+    let commands = ['Hey my creator, molinajimenez did this! 🥰'];
     let input = '';
     let show = false;
 
     $: input = input;
     $: commands = commands;
     $: show = show;
-    focusInput = (e)=>{
-        document.querySelector('input[name="inputConsole"]').focus();
-    }
 
-    changeDisplay=(newDisplay)=>{
+    function changeDisplay(newDisplay){
         input = newDisplay;
     }
 
-    clearTerminal = () =>{
+    function clearTerminal(){
         commands = [];
         input = '';
         show = false;   
     }
 
-    handleSubmit=(e)=>{
+    function handleSubmit(e){
         e.preventDefault();
 		if (input.toLowerCase() === 'clear') {
             console.log("clearing")
-			this.clearTerminal()
+			clearTerminal()
         } 
         else if (input.toLowerCase() === 'neofetch') {
             console.log("add new line")
@@ -43,10 +40,10 @@
             commands: [...prevState.commands, '$ ' + prevState.input + ': command not found'];
 		}
     }
-    
-    onMount =()=>{
-        this.focusInput()
-    }
+
+    onMount(async () => {
+        document.querySelector('input[name="inputConsole"]').focus();
+    })
 
 
 </script>
@@ -80,11 +77,11 @@
    
 </style>
 
-<div class="terminal" on:click={onClick} tabIndex={0}>
+<div class="terminal" tabIndex={0}>
     <Lines commands={commands} />
         
     <Board show={show} />
-    <LineContainer active={true} text={' '+input}/>
+    <LineContainer active={true} text={' '+input} />
         
-    <HiddenForm handleSubmit={this.handleSubmit} Onchange={this.changeDisplay}/>
+    <HiddenForm handleSubmit={handleSubmit} Onchange={changeDisplay}/>
 </div>

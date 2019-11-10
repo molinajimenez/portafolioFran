@@ -1,5 +1,5 @@
 <script>
-    import LineContainer from 'LineContainer.svelte';
+    import LineContainer from './LineContainer.svelte';
     export let commands;
 </script>
 
@@ -14,6 +14,6 @@
 
 <ul>
     {#each commands as line}
-        <LineContainer key={line.index} text={line.line}/>
+        <LineContainer key={line.index} text={line}/>
     {/each}
 </ul>

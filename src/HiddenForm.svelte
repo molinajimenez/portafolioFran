@@ -1,7 +1,8 @@
 <script>
-    getInput=(e)=>{
-        const { Onchange } = this.props
-        const hiddenInput =  document.querySelector('input[name="inputConsole"]')
+    export let handleSubmit;
+    export let Onchange;
+    function getInput(e){
+        const hiddenInput = document.querySelector('input[name="inputConsole"]')
         if(e.which != 13){
             Onchange(hiddenInput.value)
         } else{

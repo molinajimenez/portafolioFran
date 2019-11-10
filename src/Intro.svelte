@@ -135,7 +135,7 @@ ul.ActivesideNav a i:hover{
 
 
 </style>
-<section style="position:relative;">
+
     <ul class='{activate ? "Activecontroller" : "controller" }'>
         <a id="uniqueHamburguer" href="#t1"><i  class="la la-bars" on:click={handleClick}></i></a>
     </ul>
@@ -146,4 +146,3 @@ ul.ActivesideNav a i:hover{
         <a href="#t1"><i class="la la-university"></i></a>
         <a href="#t1"><i class="la la-puzzle-piece"></i></a>
     </ul>
-</section>
