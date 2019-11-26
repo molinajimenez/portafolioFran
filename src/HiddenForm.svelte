@@ -1,13 +1,17 @@
 <script>
+    export let input;
     export let handleSubmit;
-    export let Onchange;
+    export let changeDisplay;
     function getInput(e){
+        
         const hiddenInput = document.querySelector('input[name="inputConsole"]')
         if(e.which != 13){
-            Onchange(hiddenInput.value)
+           input = hiddenInput.value;
+           changeDisplay(input);
         } else{
             //limpiamos input, limpiamos screen value
-            Onchange('')
+            input = "";
+            changeDisplay("");
             hiddenInput.value = ''
         }
         
@@ -27,6 +31,6 @@
 </style>
 
 
-<form method="post" class="InputForm" autoComplete="off" onSubmit={this.handleSubmit}>
-    <input autoComplete="off" name="inputConsole" onKeyUp={this.getInput}>
+<form method="post" class="InputForm" autoComplete="off" on:submit={handleSubmit}>
+    <input autoComplete="off" name="inputConsole" on:keyup={getInput}>
 </form>

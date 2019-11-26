@@ -6,7 +6,7 @@
     import HiddenForm from './HiddenForm.svelte';
 
     
-    let commands = ['Hey my creator, molinajimenez did this! 🥰'];
+    let commands = ['Hey, my creator: molinajimenez did this! 🥰'];
     let input = '';
     let show = false;
 
@@ -27,17 +27,19 @@
     function handleSubmit(e){
         e.preventDefault();
 		if (input.toLowerCase() === 'clear') {
-            console.log("clearing")
 			clearTerminal()
         } 
-        else if (input.toLowerCase() === 'neofetch') {
-            console.log("add new line")
-            console.log("display TRUE")
-            commands = [...prevState.commands, '$ ' + input];
+        else if (input.toLowerCase() === 'specs') {
+            commands = [...commands, '$ ' + input];
             show = true;
-		} else {
-            console.log("add new line: command not found")
-            commands: [...prevState.commands, '$ ' + prevState.input + ': command not found'];
+        } else if(input.toLowerCase() === 'hobbies') {
+            commands = [...commands, '$ ' + "Glad you asked, I enjoy playing videogames and hanging out with my friends"];
+        } else if(input.toLowerCase() === 'languages'){
+            commands = [...commands, '$ ' + "I speak Spanish, English and a little bit of German."];
+        }
+        
+        else {
+            commands = [...commands, '$ ' + input + ': command not found'];
 		}
     }
 
@@ -60,7 +62,7 @@
         min-width: 450px;
         padding: 0.5rem;
         position: relative;
-        width: 100%;
+        
 
     }
     div.terminal::before {
@@ -83,5 +85,5 @@
     <Board show={show} />
     <LineContainer active={true} text={' '+input} />
         
-    <HiddenForm handleSubmit={handleSubmit} Onchange={changeDisplay}/>
-</div>
+    <HiddenForm handleSubmit={handleSubmit} changeDisplay={changeDisplay} bind:value={input}/>
+</div>  

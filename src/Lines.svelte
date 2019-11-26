@@ -5,15 +5,15 @@
 
 <style>
     ul{
-        list-style: 'none';
-        padding: '0';
-        margin: '0';
-        color: 'black';
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: black;
     }
 </style>
 
 <ul>
     {#each commands as line}
-        <LineContainer key={line.index} text={line}/>
+        <LineContainer text={line}/>
     {/each}
 </ul>
