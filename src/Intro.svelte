@@ -1,8 +1,41 @@
 <script>
     let activate = false;
+    export let 
+        isTerminal = false,
+		isHobby = false,
+		isMe = true, //this should be our landing...
+		isEducation = false;
 
     function handleClick(){
        activate = !activate;
+    }
+
+    function activateTerminal(){         
+        isTerminal = true;
+        isMe = false;
+        isEducation = false;
+        isHobby = false;        
+    }
+
+    function activateMe(){         
+        isTerminal = false;
+        isMe = true;
+        isEducation = false;
+        isHobby = false;        
+    }
+
+    function activateEducation(){         
+        isTerminal = false;
+        isMe = false;
+        isEducation = true;
+        isHobby = false;        
+    }
+
+    function activateHobby(){
+        isTerminal = false;
+        isMe = false;
+        isEducation = false;
+        isHobby = true;      
     }
 
 </script>
@@ -11,16 +44,7 @@
     :global(body){
         background: #374046;
     }
-    section{
-        width: 100%;
-        height: 1vh;
-        margin: 0;
-        padding: 0;
-        transition: all 1s cubic-bezier(.5, -0.005, 0.2, 1);
-        color: #fff;
-        background: #374046;
-        overflow: hidden;
-    }
+    
 
     ul {
 
@@ -141,8 +165,8 @@ ul.ActivesideNav a i:hover{
     </ul>
     
     <ul class='{activate ? "ActivesideNav" : "sideNav"}'>
-        <a href="#t1"><i class="la la-male"></i></a>
-        <a href="/terminal"><i class="la la-terminal"></i></a>
-        <a href="#t1"><i class="la la-university"></i></a>
-        <a href="#t1"><i class="la la-puzzle-piece"></i></a>
+        <a href="/#"><i class="la la-male" on:click={activateMe()}></i></a>
+        <a href="/#"><i class="la la-terminal" on:click={activateTerminal()}></i></a>
+        <a href="/#"><i class="la la-university" on:click={activateEducation()}></i></a>
+        <a href="/#"><i class="la la-puzzle-piece" on:click={activateHobby()}></i></a>
     </ul>

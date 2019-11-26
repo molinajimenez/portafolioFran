@@ -6,8 +6,7 @@
     import BoardHelp from './BoardHelp.svelte';
     import HiddenForm from './HiddenForm.svelte';
 
-    
-    let commands = ['Hey, my creator: molinajimenez did this! 🥰'];
+    let commands = ['*************************************************','Hey, my creator: molinajimenez did this! 🥰', 'Use the help command to get started', '*************************************************'];
     let input = '';
     let show = false;
     let showProgramming = false;

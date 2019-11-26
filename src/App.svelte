@@ -1,7 +1,8 @@
 <script>
 	import Intro from './Intro.svelte';
 	import Terminal from  './Terminal.svelte';
-	export let name;
+	import { fly } from 'svelte-transitions';
+	let isMe = true, isTerminal = false, isHobby = false, isEducation = false;
 
 	function focusInput(e){
 		document.querySelector('input[name="inputConsole"]').focus()
@@ -17,6 +18,7 @@
 			`
 		}
 	}
+	
 </script>
 
 <style>
@@ -49,7 +51,12 @@
 <div class="page">
 	<section style="position:relative;">
 
-		<Intro />
+		<Intro 
+			bind:isTerminal={isTerminal} 
+			bind:isHobby={isHobby}
+			bind:isEducation={isEducation}
+			bind:isMe={isMe}  
+		/>
 
 	</section>
 
@@ -61,11 +68,29 @@
 	</section>
 
 	<div></div>
-	<div class="contentWrapper">
+
+	{#if isTerminal}
+	
+	<div transition:fly class="contentWrapper">
 		<div class="inner" on:click="{focusInput}">
 			<Terminal />
 		</div>
 	</div>
+
+	{:else if isMe}
+		<div class="inner">
+			<p>This is the ME section</p>
+		</div>
+
+	{:else if isEducation}
+		<div class="inner">
+			<p>This is the EDUCATION section</p>
+		</div>
+	{:else if isHobby}
+		<div class="inner">
+			<p>This is the HOBBY section</p>
+		</div>
+	{/if}
 	
 
 </div>

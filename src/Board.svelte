@@ -30,23 +30,15 @@ div.board > ul{
 	margin: 0 0 0 0.5rem;
 }
 
-div.boardHidden{
-    color: black;
-	display: none;
-	font-size: calc(9px + 0.25vw);
-	padding: 0.5rem;
-	position: relative;
-}
-
 </style>
 {#if show }
     <div class="board">
         <img src={image} alt="Dell system logo">
         <ul class="boardList">
           <li>
-            <Cyan text="_ubben" />
+            <Cyan text="molinajimenez" />
 @
-            <Cyan text="codepen" />
+            <Cyan text="GitHub" />
           </li>
           <li>-----------------</li>
           <li>
@@ -67,7 +59,7 @@ div.boardHidden{
           </li>
           <li>
             <Cyan text="Packages" />
-: 22
+: 9
           </li>
           <li>
             <Cyan text="Shell" />
