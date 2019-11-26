@@ -5,7 +5,7 @@
 <style>
     div.blinker{
         animation: .8s blink infinite;
-        background: black;
+        background: white;
         display: inline-block;
         height: calc(12px + 0.25vw);
         margin-bottom: -1px;

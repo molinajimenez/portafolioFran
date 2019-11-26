@@ -6,7 +6,7 @@
 
 <style>
     li{
-        color: black;
+        color: white;
 	    margin-top: 0.15rem;
         position: relative;
         list-style: none;

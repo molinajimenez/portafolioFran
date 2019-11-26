@@ -1,4 +1,5 @@
 <script>
+    let value;
     export let input;
     export let handleSubmit;
     export let changeDisplay;
