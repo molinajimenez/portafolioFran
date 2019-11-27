@@ -1,10 +1,9 @@
 <script>
     let activate = false;
-    export let 
-        isTerminal = false,
-		isHobby = false,
-		isMe = true, //this should be our landing...
-		isEducation = false;
+    export let isTerminal = false
+	export let isHobby = false
+	export let isMe = true 
+	export let isEducation = false
 
     function handleClick(){
        activate = !activate;
@@ -165,8 +164,8 @@ ul.ActivesideNav a i:hover{
     </ul>
     
     <ul class='{activate ? "ActivesideNav" : "sideNav"}'>
-        <a href="/#"><i class="la la-male" on:click={activateMe()}></i></a>
-        <a href="/#"><i class="la la-terminal" on:click={activateTerminal()}></i></a>
-        <a href="/#"><i class="la la-university" on:click={activateEducation()}></i></a>
-        <a href="/#"><i class="la la-puzzle-piece" on:click={activateHobby()}></i></a>
+        <a href="#t1"><i class="la la-male" on:click={activateMe}></i></a>
+        <a href="#t1"><i class="la la-terminal" on:click={activateTerminal}></i></a>
+        <a href="#t1"><i class="la la-university" on:click={activateEducation}></i></a>
+        <a href="#t1"><i class="la la-puzzle-piece" on:click={activateHobby}></i></a>
     </ul>

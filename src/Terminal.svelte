@@ -4,6 +4,7 @@
     import LineContainer from './LineContainer.svelte';
     import Board from './Board.svelte';
     import BoardHelp from './BoardHelp.svelte';
+    import BoardProgramming from './BoardProgramming.svelte';
     import HiddenForm from './HiddenForm.svelte';
 
     let commands = ['*************************************************','Hey, my creator: molinajimenez did this! 🥰', 'Use the help command to get started', '*************************************************'];
@@ -36,6 +37,8 @@
         else if (input.toLowerCase() === 'specs') {
             commands = [...commands, '$ ' + input];
             show = true;
+            showProgramming = false;
+            showHelp = false;
         } else if(input.toLowerCase() === 'hobbies') {
             commands = [...commands, '$ ' + "Glad you asked, I enjoy playing videogames and hanging out with my friends 🎈"];
         } else if(input.toLowerCase() === 'languages'){
@@ -43,6 +46,19 @@
         } else if(input.toLowerCase() === 'help'){
             commands = [...commands, '$ ' + "Hope this helps 🤓"];
             showHelp = true;
+            show = false;
+            showProgramming = false;
+        } else if(input.toLowerCase() === 'programming'){
+            commands = [...commands, '$ ' + input];
+            showHelp = false;
+            show = false;
+            showProgramming = true;
+        } else if(input.toLowerCase() === 'currentJob'){
+            commands = [...commands, '$ ' + "I'm working as a backend developer with Laravel"];
+            
+        }else if(input.toLowerCase() === 'technologies'){
+            commands = [...commands, '$ ' + "This site uses Svelte 3, Rollup and some dependencies.."];
+            
         }
         
         else {
@@ -92,7 +108,8 @@
         
     <Board show={show} />
     <BoardHelp show={showHelp} />
+    <BoardProgramming showProgramming={showProgramming}></BoardProgramming>
     <LineContainer active={true} text={' '+input} />
         
-    <HiddenForm handleSubmit={handleSubmit} changeDisplay={changeDisplay} bind:value={input}/>
+    <HiddenForm handleSubmit={handleSubmit} changeDisplay={changeDisplay} bind:input={input}/>
 </div>  

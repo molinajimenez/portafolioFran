@@ -4,7 +4,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import rollup_start_dev from './rollup_start_dev';
-import image from 'rollup-plugin-img';
+import image from '@rollup/plugin-image';
+
 const production = !process.env.ROLLUP_WATCH;
 export default {
 	input: 'src/main.js',
@@ -48,7 +49,9 @@ export default {
 		// instead of npm run dev), minify
 		production && terser(),
 		image({
-			limit: 10000
+			extensions: /\.(png|jpg|jpeg|gif|svg)$/,
+			limit: 10000,
+			exclude: 'node_modules/**'
 		  })
 	],
 	watch: {
